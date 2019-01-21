@@ -1,0 +1,17 @@
+{
+  "name": "wdio-demo",
+  "version": "1.0.0",
+  "description": "test description",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio"
+  },
+  "author": "Henry Benito",
+  "license": "ISC",
+  "devDependencies": {
+    "webdriverio": "^4.14.2",
+    "wdio-mocha-framework": "^0.6.4",
+    "wdio-spec-reporter": "^0.1.5",
+    "wdio-selenium-standalone-service": "^0.0.12"
+  }
+}
