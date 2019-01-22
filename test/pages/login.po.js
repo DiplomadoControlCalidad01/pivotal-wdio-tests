@@ -1,27 +1,40 @@
-const commonActinos = require('../core/CommonActions')
+const {url} = require('../../environment');
+const commonActions = require('../core/CommonActions');
+const Dashboard = require('../pages/dashboard.po');
 class Login {
+
+    constructor() {
+        this.usernameTextField = '#credentials_username';
+        this.passwordTextField = '#credentials_password';
+        this.nextButton = 'input[value=\'NEXT\']';
+        this.signinButton = 'input[value=\'SIGN IN\']';
+
+        browser.url(url);
+        commonActions.waitForVisible('.signin_page');
+    }
     setUsernameTextField(username) {
-        commonActinos.setValue('#credentials_username', username);
+        commonActions.setValue(this.usernameTextField, username);
     }
 
     setPasswordTextField(username) {
-        commonActinos.setValue('#credentials_password', username);
+        commonActions.setValue(this.passwordTextField, username);
     }
 
-    nextButton() {
-        commonActinos.click('input[value=\'NEXT\']');
+    clickNextButton() {
+        commonActions.click(this.nextButton);
     }
 
-    signinButton() {
-        commonActinos.click('input[value=\'SIGN IN\']');
+    clickSignInButton() {
+        commonActions.click(this.signinButton);
     }
 
     static loginAs(username, password) {
         let login = new Login();
         login.setUsernameTextField(username);
-        login.nextButton();
+        login.clickNextButton();
         login.setPasswordTextField(password);
-        login.signinButton();
+        login.clickSignInButton();
+        return new Dashboard();
     }
 }
 module.exports = Login;
