@@ -1,7 +1,8 @@
 const assert = require('assert');
+const commonActions = require('../../CommonActions');
 const credentials = require('../../environment').credentials;
-const commonActions= require('../core/CommonActions');
 const login= require('../pages/login.po');
+const story= require('../pages/story.po');
 
 
 describe('webdriver.io page', () => {
@@ -11,6 +12,7 @@ describe('webdriver.io page', () => {
         var title = browser.getTitle();
         assert.equal(title, 'Pivotal Tracker - Sign in');
     });
+
     it('Login to pivotal tracker', () => {
         let dashboard = login.loginAs(credentials.sysadmin.username, credentials.sysadmin.password);
         let createProjectModal = dashboard.clickCreateProjectButton();
@@ -24,6 +26,13 @@ describe('webdriver.io page', () => {
         createProjectModal.clickCreateButton();
 
         commonActions.waitForInvisible('div[data-aid="modal-content"]');
-        browser.pause(20000);
+    });
+
+    it('Add user storie', () => {
+        let dashboard = login.loginAs(credentials.sysadmin.username, credentials.sysadmin.password);
+        story.addStory(storyName);
+        let element = commonActions.getValue('//span[contains(text(), \'My us\')]');
+        assert.equal(storyName, element);
+
     });
 });
