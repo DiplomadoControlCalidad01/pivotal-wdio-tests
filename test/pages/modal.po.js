@@ -6,8 +6,8 @@ class Modal {
         commonActions.waitForVisible('div[data-aid="modal-content"]');
     }
 
-    clickCreateButton(projectName) {
-        commonActions.click(this.projectNameTextField);
+    clickCreateButton() {
+        commonActions.click(this.createButton);
     }
 }
 module.exports = Modal;

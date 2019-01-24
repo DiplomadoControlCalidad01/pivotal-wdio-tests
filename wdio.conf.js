@@ -164,6 +164,7 @@ exports.config = {
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
     // before: function (capabilities, specs) {
+    //     browser.windowHandleMaximize();
     // },
     /**
      * Runs before a WebdriverIO command gets executed.
