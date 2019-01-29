@@ -9,8 +9,16 @@
       "password" : ""
     }
   },
-  "url": "https://login.salesforce.com",
+  "url": "https://www.pivotaltracker.com/signin",
     "timeout": {
       "explicit" : 30000
-    }
+    },
+  "browserstack": {
+    "user": "",
+    "key": "",
+    "os" : "Windows",
+    "os_version" : "10",
+    "browserName" : "Chrome",
+    "browser_version" : "62.0"
+  }
 }
