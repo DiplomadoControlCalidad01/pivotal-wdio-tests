@@ -1,6 +1,7 @@
 const assert = require('assert');
+const expect = require('chai').expect;
+const helper = require('../helpers/helper');
 const credentials = require('../../environment').credentials;
-const commonActions= require('../core/CommonActions');
 const login= require('../pages/login.po');
 
 
@@ -16,14 +17,17 @@ describe('webdriver.io page', () => {
         let createProjectModal = dashboard.clickCreateProjectButton();
 
         let project = {
-            'Name' : 'another test',
+            'Name' : helper.getRandomString(20),
             'Account' : 'None',
             'Privacy' : 'public'
         };
         createProjectModal.fillForm(project);
-        createProjectModal.clickCreateButton();
+        let projectHeader = createProjectModal.clickCreateButton();
 
-        commonActions.waitForInvisible('div[data-aid="modal-content"]');
-        browser.pause(20000);
+
+
+        browser.pause(5000);
+
+        expect(project.Name).to.equal(projectHeader.getProjectName());
     });
 });
