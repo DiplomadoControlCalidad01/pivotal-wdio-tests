@@ -1,5 +1,5 @@
 const assert = require('assert');
-const commonActions = require('../../CommonActions');
+const commonActions = require('../core/CommonActions');
 const credentials = require('../../environment').credentials;
 const login= require('../pages/login.po');
 const story= require('../pages/story.po');
@@ -18,7 +18,7 @@ describe('webdriver.io page', () => {
         let createProjectModal = dashboard.clickCreateProjectButton();
 
         let project = {
-            'Name' : 'another test',
+            'Name' : 'another test3',
             'Account' : 'None',
             'Privacy' : 'public'
         };
@@ -26,13 +26,7 @@ describe('webdriver.io page', () => {
         createProjectModal.clickCreateButton();
 
         commonActions.waitForInvisible('div[data-aid="modal-content"]');
+        browser.pause(20000);
     });
 
-    it('Add user storie', () => {
-        let dashboard = login.loginAs(credentials.sysadmin.username, credentials.sysadmin.password);
-        story.addStory(storyName);
-        let element = commonActions.getValue('//span[contains(text(), \'My us\')]');
-        assert.equal(storyName, element);
-
-    });
 });

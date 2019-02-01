@@ -1,4 +1,4 @@
-const commonActions = require('../../CommonActions');
+const commonActions = require('../core/CommonActions');
 class Story{
 
     setStoryName(name) {

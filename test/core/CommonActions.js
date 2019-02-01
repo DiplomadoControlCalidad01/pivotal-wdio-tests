@@ -16,8 +16,5 @@ class CommonActions {
         browser.waitForVisible(locator, 30000, true);
     }
 
-    static getValue(locator) {
-        return browser.element(locator);
-    }
 }
 module.exports = CommonActions;
