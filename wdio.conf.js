@@ -1,3 +1,5 @@
+const {browser} = require('./environment');
+
 exports.config = {
     
     //
@@ -44,7 +46,7 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 2,
         //
-        browserName: 'chrome'
+        browserName: browser
     }],
     //
     // ===================
