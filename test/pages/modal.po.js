@@ -1,5 +1,5 @@
 const commonActions = require('../core/CommonActions');
-const ProjectHeader = require('../pages/ProjectHeader.po');
+const ProjectHeader = require('./projectHeader.po');
 class Modal {
 
     constructor() {
@@ -10,8 +10,7 @@ class Modal {
 
     clickCreateButton() {
         commonActions.click(this.createButton);
-        commonActions.waitForInvisible(this.container);
-        return new ProjectHeader();
+        commonActions.waitForInvisible(this.container);        
     }
 }
 module.exports = Modal;

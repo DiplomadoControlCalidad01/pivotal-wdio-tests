@@ -3,7 +3,7 @@ class ProjectHeader{
 
     constructor() {
         this.projectNameLabel = '.raw_context_name';
-        this.privacyLabel = 'public_project_label';
+        this.privacyLabel = '.public_project_label';
     }
 
     getProjectName() {
@@ -11,7 +11,7 @@ class ProjectHeader{
     }
 
     getPrivacy() {
-        return commonActions.getText(this.privacyLabel);
+        return commonActions.getText(this.privacyLabel).toLowerCase().replace(/[{()}]/g, '');
     }
 }
-module.exports = ProjectHeader;
+module.exports = new ProjectHeader();
