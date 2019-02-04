@@ -3,7 +3,7 @@ const SettingsForm = require('../pages/settingsForm.po');
 class ProjectNav{
 
     constructor() {
-        this.moreButton = 'a[data-aid="navTab-more"]';        
+        this.moreButton = 'a[data-aid="navTab-more"]';       
     }
 
     clickMore() {

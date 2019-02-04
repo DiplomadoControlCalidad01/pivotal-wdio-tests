@@ -9,8 +9,8 @@ class Login {
         this.nextButton = 'input[value=\'NEXT\']';
         this.signinButton = 'input[value=\'SIGN IN\']';
         this.profileDropdown = 'button[aria-label=\'Profile Dropdown\']';
-        this.signoutButton = 'data-aid=\'ProfileDropdown__signout\'';
-        this.useDifferentAccount = 'data-aid=\'different_account_link\'';
+        this.signoutButton = '[data-aid="ProfileDropdown__signout"]';
+        this.useDifferentAccount = '[data-aid="different_account_link"]';
     }
     setUsernameTextField(username) {
         commonActions.setValue(this.usernameTextField, username);
