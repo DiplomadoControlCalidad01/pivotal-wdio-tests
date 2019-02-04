@@ -11,5 +11,13 @@ class Dashboard {
         commonActions.click(this.createProjectButton);
         return new CreateProjectModal();
     }
+
+    selectProject(projectName) {
+        let allProjects = 'button[data-aid=\'show-more-projects-button\']';
+        commonActions.click(allProjects);
+        let selector = commonActions.concatLocator('//a[contains(text(),"', projectName, '")]');
+        commonActions.click(selector);
+    }
+
 }
 module.exports = Dashboard;

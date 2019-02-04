@@ -10,7 +10,7 @@ class CommonActions {
     }
 
     static waitForVisible(locator) {
-        browser.waitForVisible(locator, 30000);
+        return browser.waitForVisible(locator, 30000);
     }
     static waitForInvisible(locator) {
         browser.waitForVisible(locator, 30000, true);
@@ -19,6 +19,10 @@ class CommonActions {
     static getText(locator) {
         browser.waitForVisible(locator, 30000);
         return browser.getText(locator);
+    }
+
+    static concatLocator(locator, value, closeLocator) {
+        return locator.concat(value, closeLocator);
     }
 }
 module.exports = CommonActions;
