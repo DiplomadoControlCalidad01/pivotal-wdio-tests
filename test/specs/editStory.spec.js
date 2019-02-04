@@ -4,28 +4,31 @@ const commonActions = require('../core/CommonActions');
 const credentials = require('../../environment').credentials;
 const login= require('../pages/login.po');
 const story= require('../pages/createStoryModal.po');
+const editStory = require('../pages/editStoryModel.po');
 
 
 describe('webdriver.io page', () => {
-
-    let projectName;
     let dashboard;
+    let description;
 
     before(() => {
         dashboard = login.loginAs(credentials.sysadmin.username, credentials.sysadmin.password);
-        projectName = helper.getRandomString(20);
+        description = helper.getRandomString(30);
     });
 
     after(() => {
         login.logout();
     });
 
-    it('#BVT Add user story', () => {
+    it('Edit user story', () => {
         dashboard.selectProject("test1");
         let storyName = helper.getRandomString(10);
         story.addStory(storyName);
-        let storySelector = commonActions.concatLocator('//span[contains(text(),"', storyName ,'")]');
-        let element = commonActions.getText(storySelector);
-        assert.equal(storyName, element);
+        let description = helper.getRandomString(20);
+        editStory(storyName, description);
+        editStory.clickEditStory(storyName);
+        let descriptionSelector = '//h4[contains(text(),"Description")]/following-sibling::div/child::span/child::p';
+        let element = commonActions.getText(descriptionSelector);
+        assert.equal(description, element);
     });
 });

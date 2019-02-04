@@ -1,10 +1,8 @@
 const assert = require('assert');
 const expect = require('chai').expect;
 const helper = require('../helpers/helper');
-const commonActions = require('../core/CommonActions');
 const credentials = require('../../environment').credentials;
 const login= require('../pages/login.po');
-const story= require('../pages/createStoryModal.po');
 
 
 describe('webdriver.io page', () => {
