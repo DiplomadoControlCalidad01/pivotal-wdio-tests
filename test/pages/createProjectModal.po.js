@@ -14,11 +14,11 @@ class CreateProjectModal extends Modal{
 
     selectAccount(accountName) {
         commonActions.click(this.accountArrow);
-        commonActions.click('//div[contains(@class,"option-account-name") and(text()="' + accountName + '")]');
+        commonActions.click(`//div[contains(@class,"option-account-name") and(text()="${accountName}")]`);
     }
 
     setPrivacy(value) {
-        commonActions.click('input[name="project_type"][data-aid="' + value + '"]');
+        commonActions.click(`input[name="project_type"][data-aid="${value}"]`);
     }
 
     fillForm(projectJson) {

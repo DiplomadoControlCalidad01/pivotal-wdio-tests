@@ -1,11 +1,10 @@
-const assert = require('assert');
 const expect = require('chai').expect;
 const helper = require('../helpers/helper');
 const credentials = require('../../environment').credentials;
 const login= require('../pages/login.po');
+const projectHeader= require('../pages/projectHeader.po');
 
-
-describe('webdriver.io page', () => {
+describe('Project Feature', () => {
 
     let projectName;
     let dashboard;
@@ -19,12 +18,7 @@ describe('webdriver.io page', () => {
         login.logout();
     });
 
-    it('should have the right title', () => {
-        let title = browser.getTitle();
-        assert.equal(title, 'Dashboard - Pivotal Tracker');
-    });
-
-    it('#BVT Create project', () => {
+    it('#BVT Create a project on Pivotal Tracker', () => {
         let createProjectModal = dashboard.clickCreateProjectButton();
         let project = {
             'Name' : projectName,
@@ -32,7 +26,8 @@ describe('webdriver.io page', () => {
             'Privacy' : 'public'
         };
         createProjectModal.fillForm(project);
-        let projectHeader = createProjectModal.clickCreateButton();
+        createProjectModal.clickCreateButton();        
         expect(project.Name).to.equal(projectHeader.getProjectName());
+        expect(project.Privacy).to.equal(projectHeader.getPrivacy());
     });
 });

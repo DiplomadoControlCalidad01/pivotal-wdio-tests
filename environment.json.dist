@@ -10,9 +10,9 @@
     }
   },
   "url": "https://www.pivotaltracker.com/signin",
-    "timeout": {
-      "explicit" : 30000
-    },
+  "timeout": {
+    "explicit" : 30000
+  },
   "browserstack": {
     "user": "",
     "key": "",

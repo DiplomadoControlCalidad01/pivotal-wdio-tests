@@ -4,6 +4,7 @@ class Dashboard {
 
     constructor() {
         this.createProjectButton = '#create-project-button';
+        this.notice = '#notice';
         commonActions.waitForVisible('.Dashboard');
     }
 
@@ -17,6 +18,10 @@ class Dashboard {
         commonActions.click(allProjects);
         let selector = commonActions.concatLocator('//a[contains(text(),"', projectName, '")]');
         commonActions.click(selector);
+    }
+
+    getMessage() {
+        commonActions.getText(this.notice);
     }
 
 }
